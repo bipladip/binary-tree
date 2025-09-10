@@ -1,0 +1,11 @@
+void inOrderHelper(struct Node* root, int res[], int *index) {
+    if (root == NULL) return;
+
+    inOrderHelper(root->left, res, index);
+    res[(*index)++] = root->data;
+    inOrderHelper(root->right, res, index);
+}
+void inOrder(struct Node* root, int res[]) {
+    int index = 0;
+    inOrderHelper(root, res, &index);
+}
