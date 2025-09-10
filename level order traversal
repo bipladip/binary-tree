@@ -1,0 +1,17 @@
+class Solution:
+    def levelOrder(self, root):
+        levelOrder = []
+        levelOrderTraversal = [root]
+        while levelOrderTraversal:
+            tmp = []
+            itemNodes = []
+            while levelOrderTraversal:
+                item = levelOrderTraversal.pop(0)
+                tmp.append(item.data)
+                if item.left:
+                    itemNodes.append(item.left)
+                if item.right:
+                    itemNodes.append(item.right)
+            levelOrderTraversal = itemNodes
+            levelOrder.append(tmp)
+        return levelOrder
